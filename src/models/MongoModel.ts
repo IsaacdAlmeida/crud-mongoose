@@ -1,9 +1,6 @@
-// aqui definimos a biblioteca mongoose
-// o mongoose tem um model que a gente ainda não sabe o que é
-// ele aceita qualquer tipo genérico
-
 import { isValidObjectId, Model } from 'mongoose';
 import IModel from '../interfaces/IModel';
+import { ErrorTypes } from '../errors/catalog';
 
 abstract class MongoModel<T> implements IModel<T> {
   protected _model:Model<T>;
@@ -17,7 +14,7 @@ abstract class MongoModel<T> implements IModel<T> {
   }
 
   public async readOne(_id:string):Promise<T | null> { // LEITURA DE UM - VERIFICA SE O OBJETO VÁLIDO
-    if (!isValidObjectId(_id)) throw Error('InvalidMongoId'); // VERIFICA A VALIDADE DO ID
+    if (!isValidObjectId(_id)) throw Error(ErrorTypes.InvalidMongoId); // VERIFICA A VALIDADE DO ID
     return this._model.findOne({ _id }); // E AQUI EU PROCURO PELO ID
   }
 
