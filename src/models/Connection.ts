@@ -1,9 +1,13 @@
 import 'dotenv/config';
 import mongoose from 'mongoose';
 
+const options = {
+  dbName: process.env.MONGO_INITDB_DATABASE,
+};
+
 const connectToDatabase = (
   mongoDatabaseURI = process.env.MONGO_URI
-    || 'mongodb://root:example@localhost:27017/glassesStore?authSource=admin',
-) => mongoose.connect(mongoDatabaseURI);
+    || '',
+) => mongoose.connect(mongoDatabaseURI, options);
 
 export default connectToDatabase;

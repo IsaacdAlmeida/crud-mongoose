@@ -3,12 +3,12 @@ export enum ErrorTypes {
   InvalidMongoId = 'InvalidMongoId',
 }
 
-type ErrorResponseObject = { 
-  message: string;
-  httpStatus: number
-};
+// type ErrorResponseObject = { 
+//   message: string;
+//   httpStatus: number
+// };
 
-export const errorCatalog: ErrorCatalog = {
+export const errorCatalog /*: ErrorCatalog */= {
   EntityNotFound: {
     message: 'Entity not found',
     httpStatus: 404,
