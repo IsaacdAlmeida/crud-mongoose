@@ -7,8 +7,6 @@ export default class FrameController {
 
   public async create(
     req: Request,
-    // Usamos o IFrame como parâmetro genérico do Request
-    // para declarar que vamos responder a requisição com um objeto do tipo IFrame
     res: Response<IFrame>,
   ) {
     const { material, color } = req.body;
@@ -22,6 +20,31 @@ export default class FrameController {
     res: Response<IFrame>,
   ) {
     const result = await this._service.readOne(req.params.id);
+    return res.status(200).json(result);
+  }
+
+  public async update(
+    req: Request,
+    res: Response<IFrame>,
+  ) {
+    const updated = await this._service.update(req.params.id, req.body);
+
+    return res.status(200).json(updated);
+  }
+
+  public async read(
+    req: Request,
+    res: Response<IFrame[]>,
+  ) {
+    const result = await this._service.read();
+    return res.status(200).json(result);
+  }
+
+  public async destroy(
+    req: Request,
+    res: Response<IFrame>,
+  ) {
+    const result = await this._service.destroy(req.params.id);
     return res.status(200).json(result);
   }
 }

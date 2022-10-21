@@ -1,5 +1,5 @@
 import { model as mongooseCreateModel, Schema } from 'mongoose';
-import ILens from '../interfaces/Lens';
+import ILens from '../interfaces/Lens.ts_';
 import MongoModel from './MongoModel';
 
 const lensMongooseSchema = new Schema<ILens>({

@@ -1,4 +1,4 @@
-import ILens from '../../interfaces/Lens';
+import ILens from '../../interfaces/Lens.ts_';
 
 const lensMock:ILens = {
   degree: 10,
